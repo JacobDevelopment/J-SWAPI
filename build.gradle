@@ -1,0 +1,16 @@
+plugins {
+    id 'java'
+}
+
+group 'io.jking'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.0.1'
+    implementation 'com.squareup.okhttp3:okhttp:4.10.0'
+}
+
