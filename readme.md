@@ -42,7 +42,8 @@ This API does allow search querying, or retrieving all data for specific resourc
 You can find more examples here: <a href="https://github.com/JacobDevelopment/j-swapi/tree/master/src/test/java/io/jking/jswapi">Examples</a>
 
 <h1>Todo</h1>
-| Item # | Description            | Done? |
-| ------ | -----------------------| ------|
-| #1     | Finish other resources.| [ ]   |
-| #2     | Get rid of Executor.   | [ ]   |
+
+| Item #1 | Description                  | Done? |
+|---------|------------------------------|-------|
+| #1      | Finish other resources.      | [ ]   |
+| #2      | Get rid of executor service. | [ ]   |
