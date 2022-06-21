@@ -1,4 +1,4 @@
-package io.jking.core;
+package io.jking.jswapi.core;
 
 public final class Checks {
 

@@ -1,9 +1,10 @@
-package io.jking.core;
+package io.jking.jswapi;
 
-import io.jking.request.Requester;
+import io.jking.jswapi.action.impl.PeopleAction;
+import io.jking.jswapi.core.Checks;
+import io.jking.jswapi.request.Requester;
 import okhttp3.OkHttpClient;
 
-import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -29,6 +30,10 @@ public class API {
 
     public Requester getRequester() {
         return requester;
+    }
+
+    public PeopleAction people() {
+        return new PeopleAction();
     }
 
     public static class Builder {
