@@ -1,6 +1,7 @@
 package io.jking.jswapi.resources;
 
 import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -19,29 +20,27 @@ import javax.annotation.processing.Generated;
 public class GeneralQuery<T extends BaseResource> {
 
     @JsonProperty("count")
-    private int count;
+    private int             count;
     @JsonProperty("next")
-    private Object next;
+    private String next;
     @JsonProperty("previous")
-    private Object previous;
+    private String previous;
     @JsonProperty("results")
-    private List<T> results = null;
+    private List<T>         results = null;
 
     /**
      * No args constructor for use in serialization
-     *
      */
     public GeneralQuery() {
     }
 
     /**
-     *
      * @param next
      * @param previous
      * @param count
      * @param results
      */
-    public GeneralQuery(int count, Object next, Object previous, List<T> results) {
+    public GeneralQuery(int count, String next, String previous, List<T> results) {
         super();
         this.count = count;
         this.next = next;
@@ -60,23 +59,13 @@ public class GeneralQuery<T extends BaseResource> {
     }
 
     @JsonProperty("next")
-    public Object getNext() {
+    public String getNext() {
         return next;
     }
 
-    @JsonProperty("next")
-    public void setNext(Object next) {
-        this.next = next;
-    }
-
     @JsonProperty("previous")
-    public Object getPrevious() {
+    public String getPrevious() {
         return previous;
-    }
-
-    @JsonProperty("previous")
-    public void setPrevious(Object previous) {
-        this.previous = previous;
     }
 
     @JsonProperty("results")
