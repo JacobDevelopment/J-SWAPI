@@ -1,5 +1,5 @@
 <h1>J-SWAPI</h1>
-<p>J(ava)-SWAPI, this is an API for <a href="https://swapi.dev/">SWAPI</a> written completely in java. It allows you to retrieve data from the Star Wars API for any applications in need of Star Wars data.</p>
+<p>J(ava)-SWAPI, this is a helper library for <a href="https://swapi.dev/">SWAPI</a> written completely in java. It allows you to retrieve data from the Star Wars API for any applications in need of Star Wars data.</p>
 
 <h1>Dependencies</h1>
 <ul>
