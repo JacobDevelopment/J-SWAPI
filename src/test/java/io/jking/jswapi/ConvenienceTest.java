@@ -1,10 +1,10 @@
 package io.jking.jswapi;
 
+import io.jking.jswapi.core.API;
 import io.jking.jswapi.resources.impl.People;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.Optional;
 
 public class ConvenienceTest {
 

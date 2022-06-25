@@ -1,7 +1,7 @@
 package io.jking.jswapi;
 
+import io.jking.jswapi.core.API;
 import io.jking.jswapi.resources.impl.People;
-import io.jking.jswapi.resources.impl.PeopleQuery;
 
 import java.io.IOException;
 import java.util.List;
