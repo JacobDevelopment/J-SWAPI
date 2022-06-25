@@ -1,17 +1,15 @@
-package io.jking.jswapi;
+package io.jking.jswapi.core;
 
+import io.jking.jswapi.action.impl.FilmsAction;
 import io.jking.jswapi.action.impl.PeopleAction;
-import io.jking.jswapi.core.Checks;
+import io.jking.jswapi.utility.Checks;
 import io.jking.jswapi.request.Requester;
 import okhttp3.OkHttpClient;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-
 public class API {
 
-    private final OkHttpClient    client;
-    private final Requester       requester;
+    private final OkHttpClient client;
+    private final Requester    requester;
 
     private API(OkHttpClient client) {
         this.client = client;
@@ -30,8 +28,12 @@ public class API {
         return new PeopleAction();
     }
 
+    public FilmsAction films() {
+        return new FilmsAction();
+    }
+
     public static class Builder {
-        private OkHttpClient    client;
+        private OkHttpClient client;
 
         public Builder() {
             this.client = new OkHttpClient();
