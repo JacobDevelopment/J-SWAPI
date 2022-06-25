@@ -37,5 +37,4 @@ public class FilmsTest {
         all.forEach(film -> System.out.println(film.getTitle()));
         System.out.println();
     }
-
 }
