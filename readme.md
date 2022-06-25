@@ -12,6 +12,8 @@ This API does not handle rate limiting, and according to the SWAPI website it al
 <a href="https://swapi.dev/documentation#rate">Source Here.</a>
 
 No authentication is required per the website as well. 
+    
+<b>As soon as the base is complete, it will be added to MavenCentral so it can be added as a dependency.</b>
 </p>
 
 
