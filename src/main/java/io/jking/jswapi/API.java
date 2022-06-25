@@ -11,21 +11,15 @@ import java.util.concurrent.Executors;
 public class API {
 
     private final OkHttpClient    client;
-    private final ExecutorService executor;
     private final Requester       requester;
 
-    private API(OkHttpClient client, ExecutorService executor) {
+    private API(OkHttpClient client) {
         this.client = client;
-        this.executor = executor;
         this.requester = new Requester(client);
     }
 
     public OkHttpClient getClient() {
         return client;
-    }
-
-    public ExecutorService getExecutor() {
-        return executor;
     }
 
     public Requester getRequester() {
@@ -38,11 +32,9 @@ public class API {
 
     public static class Builder {
         private OkHttpClient    client;
-        private ExecutorService executor;
 
         public Builder() {
             this.client = new OkHttpClient();
-            this.executor = Executors.newCachedThreadPool();
         }
 
         public Builder setHttpClient(OkHttpClient client) {
@@ -51,14 +43,8 @@ public class API {
             return this;
         }
 
-        public Builder setExecutor(ExecutorService executor) {
-            Checks.notNull(executor, "ExecutorService");
-            this.executor = executor;
-            return this;
-        }
-
         public API build() {
-            return new API(client, executor);
+            return new API(client);
         }
     }
 
