@@ -1,6 +1,6 @@
 package io.jking.jswapi.internal;
 
-import io.jking.jswapi.core.Checks;
+import io.jking.jswapi.utility.Checks;
 
 public enum Resources {
     PEOPLE("people"),
