@@ -23,9 +23,9 @@ public class ConvenienceTest {
     }
 
     private static void getFirst(API api) throws IOException {
-        api.people().getFirstBySearch("anakin skywalker")
+        api.people().getFirstBySearch("boba fett")
                 .ifPresent(person -> {
-                    System.out.println(person.getName());
+                    System.out.println(person.getHairColor());
                 });
     }
 
