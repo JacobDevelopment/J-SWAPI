@@ -6,6 +6,14 @@
 <li><a href="https://github.com/FasterXML/jackson">Jackson</a> - For parsing JSON.</li>
 <li><a href="https://github.com/square/okhttp>">OkHttp</a> - HTTP Client.</li>
 </ul>
+<h1>Please note before using:</h1>
+<p>
+This API does not handle rate limiting, and according to the SWAPI website it allows 10,000 API requests <b>per day</b>.
+<a href="https://swapi.dev/documentation#rate">Source Here.</a>
+
+No authentication is required per the website as well. 
+</p>
+
 
 <h1>Getting started.</h1>
 
