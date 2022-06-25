@@ -28,6 +28,6 @@ public class PeopleTest {
 
     private static void getAll(API api) throws IOException {
         final List<People> all = api.people().getAll();
-        System.out.println(all.size());
+        all.forEach(people -> System.out.println(people.getName()));
     }
 }
