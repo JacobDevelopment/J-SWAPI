@@ -78,7 +78,7 @@ class Started {
     public static void main(String[] args) {
         API api = new API.Builder().build();
         var filtered  = api.films().getByFilter(
-          film -> Integer.parseInt(film.getEpisodeId()) <= 3      
+          film -> film.getEpisodeId() <= 3   
         );
 //         Forms URL:  https://swapi.dev/api/films/?format=json
 //         It then just sorts utilizing streams filter methods.
