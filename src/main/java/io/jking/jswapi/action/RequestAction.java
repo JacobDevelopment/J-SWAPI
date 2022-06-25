@@ -26,6 +26,7 @@ public interface RequestAction<T extends BaseResource> {
         return Binder.bind(route, clazz);
     }
 
+
     default List<T> getByFilter(final Predicate<T> filter) throws IOException {
         return getAll()
                 .stream()

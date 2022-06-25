@@ -4,7 +4,8 @@ public enum Routes {
 
     SEARCH("https://swapi.dev/api/%s/?search=%s&format=json", true),
     ID("https://swapi.dev/api/%s/%d/?format=json", false),
-    ALL("https://swapi.dev/api/%s/?format=json", false);
+    ALL("https://swapi.dev/api/%s/?format=json", false),
+    PAGE("https://swapi.dev/api/%s/?page=%d&format=json", false);
 
     private final String  baseRouteUrl;
     private final boolean isSearchRoute;

@@ -33,6 +33,12 @@ public enum Resources {
         return Routes.ALL.getBaseRouteUrl().formatted(resource);
     }
 
+    public String getPageRoute(int pageNumber) {
+        Checks.check(pageNumber > 0, "Page Number must be greater than 0.");
+        String resource = this.getResource();
+        return Routes.PAGE.getBaseRouteUrl().formatted(resource, pageNumber);
+    }
+
     public String getResource() {
         return resource;
     }
