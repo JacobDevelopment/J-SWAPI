@@ -1,9 +1,10 @@
-package io.jking.jswapi.resources.impl;
+package io.jking.jswapi.resources;
 
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import io.jking.jswapi.resources.BaseResource;
 
 import javax.annotation.processing.Generated;
 
@@ -15,7 +16,7 @@ import javax.annotation.processing.Generated;
         "results"
 })
 @Generated("jsonschema2pojo")
-public class PeopleQuery {
+public class GeneralQuery<T extends BaseResource> {
 
     @JsonProperty("count")
     private int count;
@@ -24,13 +25,13 @@ public class PeopleQuery {
     @JsonProperty("previous")
     private Object previous;
     @JsonProperty("results")
-    private List<People> results = null;
+    private List<T> results = null;
 
     /**
      * No args constructor for use in serialization
      *
      */
-    public PeopleQuery() {
+    public GeneralQuery() {
     }
 
     /**
@@ -40,7 +41,7 @@ public class PeopleQuery {
      * @param count
      * @param results
      */
-    public PeopleQuery(int count, Object next, Object previous, List<People> results) {
+    public GeneralQuery(int count, Object next, Object previous, List<T> results) {
         super();
         this.count = count;
         this.next = next;
@@ -79,12 +80,12 @@ public class PeopleQuery {
     }
 
     @JsonProperty("results")
-    public List<People> getResults() {
+    public List<T> getResults() {
         return results;
     }
 
     @JsonProperty("results")
-    public void setResults(List<People> results) {
+    public void setResults(List<T> results) {
         this.results = results;
     }
 
