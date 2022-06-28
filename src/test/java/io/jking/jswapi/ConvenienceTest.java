@@ -23,7 +23,7 @@ public class ConvenienceTest {
     }
 
     private static void getFirst(API api) throws IOException {
-        api.people().getFirst("boba fett").ifPresent(System.out::println);
+        api.people().getFirstBySearch("boba fett").ifPresent(System.out::println);
     }
 
 
