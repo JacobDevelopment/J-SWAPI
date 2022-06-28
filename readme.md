@@ -130,10 +130,11 @@ here: <a href="https://github.com/JacobDevelopment/j-swapi/tree/master/src/test/
 
 | Item #1 | Description                           | Done? |
 |---------|---------------------------------------|-------|
-| #1      | Finish other resources.               | [ ]   |
+| #1      | Finish other resources.               | [X]   |
 | #2      | Get rid of executor service.          | [X]   |
-| #3      | Duplicate code among request actions. | [ ]   |
+| #3      | Duplicate code among request actions. | [X]   |
 | #4      | Fix readme discrepenacies. | [ ]   |
 | #5      | Handle 404 errors / page not found. | [X]   |
+| #6 | Add cache internally so we don't have to request all the time. | [ ]   |
     
   
