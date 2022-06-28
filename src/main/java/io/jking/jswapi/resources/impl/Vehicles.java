@@ -269,4 +269,25 @@ public class Vehicles extends BaseResource {
         this.url = url;
     }
 
+    @Override
+    public String toString() {
+        return "Vehicles{" +
+                "name='" + name + '\'' +
+                ", model='" + model + '\'' +
+                ", manufacturer='" + manufacturer + '\'' +
+                ", costInCredits='" + costInCredits + '\'' +
+                ", length='" + length + '\'' +
+                ", maxAtmospheringSpeed='" + maxAtmospheringSpeed + '\'' +
+                ", crew='" + crew + '\'' +
+                ", passengers='" + passengers + '\'' +
+                ", cargoCapacity='" + cargoCapacity + '\'' +
+                ", consumables='" + consumables + '\'' +
+                ", vehicleClass='" + vehicleClass + '\'' +
+                ", pilots=" + pilots +
+                ", films=" + films +
+                ", created='" + created + '\'' +
+                ", edited='" + edited + '\'' +
+                ", url='" + url + '\'' +
+                '}';
+    }
 }

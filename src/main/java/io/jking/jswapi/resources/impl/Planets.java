@@ -239,4 +239,23 @@ public class Planets extends BaseResource {
         this.url = url;
     }
 
+    @Override
+    public String toString() {
+        return "Planets{" +
+                "name='" + name + '\'' +
+                ", rotationPeriod='" + rotationPeriod + '\'' +
+                ", orbitalPeriod='" + orbitalPeriod + '\'' +
+                ", diameter='" + diameter + '\'' +
+                ", climate='" + climate + '\'' +
+                ", gravity='" + gravity + '\'' +
+                ", terrain='" + terrain + '\'' +
+                ", surfaceWater='" + surfaceWater + '\'' +
+                ", population='" + population + '\'' +
+                ", residents=" + residents +
+                ", films=" + films +
+                ", created='" + created + '\'' +
+                ", edited='" + edited + '\'' +
+                ", url='" + url + '\'' +
+                '}';
+    }
 }

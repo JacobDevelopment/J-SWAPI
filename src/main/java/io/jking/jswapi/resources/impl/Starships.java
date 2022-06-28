@@ -299,4 +299,27 @@ public class Starships extends BaseResource {
         this.url = url;
     }
 
+    @Override
+    public String toString() {
+        return "Starships{" +
+                "name='" + name + '\'' +
+                ", model='" + model + '\'' +
+                ", manufacturer='" + manufacturer + '\'' +
+                ", costInCredits='" + costInCredits + '\'' +
+                ", length='" + length + '\'' +
+                ", maxAtmospheringSpeed='" + maxAtmospheringSpeed + '\'' +
+                ", crew='" + crew + '\'' +
+                ", passengers='" + passengers + '\'' +
+                ", cargoCapacity='" + cargoCapacity + '\'' +
+                ", consumables='" + consumables + '\'' +
+                ", hyperdriveRating='" + hyperdriveRating + '\'' +
+                ", mglt='" + mglt + '\'' +
+                ", starshipClass='" + starshipClass + '\'' +
+                ", pilots=" + pilots +
+                ", films=" + films +
+                ", created='" + created + '\'' +
+                ", edited='" + edited + '\'' +
+                ", url='" + url + '\'' +
+                '}';
+    }
 }
