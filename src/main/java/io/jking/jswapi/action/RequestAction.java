@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public abstract class RequestAction<T extends BaseResource> {
 
@@ -53,8 +54,12 @@ public abstract class RequestAction<T extends BaseResource> {
         return getAll().stream().filter(filter).collect(Collectors.toList());
     }
 
-    public Optional<T> getFirst(final String searchParameter) throws IOException {
+    public Optional<T> getFirstBySearch(final String searchParameter) throws IOException {
         return getBySearch(searchParameter).stream().findFirst();
+    }
+
+    public Optional<T> getFirst() throws IOException {
+        return getAll().stream().findFirst();
     }
 
     private List<T> getAllByPages(GeneralQuery<T> generalQuery) throws IOException {
