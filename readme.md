@@ -1,5 +1,5 @@
 <h1>J-SWAPI</h1>
-<p>J(ava)-SWAPI, this is a helper library for <a href="https://swapi.dev/">SWAPI</a> written completely in java. It allows you to retrieve data from the Star Wars API for any applications in need of Star Wars data.</p>
+<p>J(ava)-SWAPI, this is an API for <a href="https://swapi.dev/">SWAPI</a> written completely in java. It allows you to retrieve data from the Star Wars API for any applications in need of Star Wars data.</p>
 
 <h1>Dependencies</h1>
 <ul>
@@ -11,9 +11,7 @@
 This API does not handle rate limiting, and according to the SWAPI website it allows 10,000 API requests <b>per day</b>.
 <a href="https://swapi.dev/documentation#rate">Source Here.</a>
 
-No authentication is required per the website as well. 
-    
-<b>As soon as the base is complete, it will be added to MavenCentral so it can be added as a dependency.</b>
+No authentication is required per the website as well.
 </p>
 
 
@@ -27,10 +25,12 @@ class Started {
 }
 ```
 
-From here, we can all specific resources that we want to retrieve. We retrieve the following resources from what SWAPI offers:
+From here, we can all specific resources that we want to retrieve. We retrieve the following resources from what SWAPI
+offers:
 <b>People, Films, Starships, Vehicles, Species, Planets.</b>
 
 For example, if we want to retrieve a specific person via <b>ID</b> we can call the following people action:
+
 ```java
 class Started {
     public static void main(String[] args) {
@@ -41,9 +41,11 @@ class Started {
 }
 ```
 
-This API does allow search querying, or retrieving all data for specific resources. All resource(s) have the following methods tied to them:
+This API does allow search querying, or retrieving all data for specific resources. All resource(s) have the following
+methods tied to them:
 <br/>
 <b>Resource#getById(Int)</b>
+
 ```java
 class Started {
     public static void main(String[] args) {
@@ -53,9 +55,11 @@ class Started {
     }
 }
 ```
+
 <br/>
 
 <b>List&lt;Resource&gt;#getBySearch(String)</b>
+
 ```java
 class Started {
     public static void main(String[] args) {
@@ -65,9 +69,11 @@ class Started {
     }
 }
 ```
+
 <br/>
 
 <b>List&lt;Resource&gt;#getAll()</b>
+
 ```java
 class Started {
     public static void main(String[] args) {
@@ -75,20 +81,22 @@ class Started {
         var movies = api.films().getAll(); // The URL forming here is: https://swapi.dev/api/films/?format=json
         for (Films film : movies) {
             System.out.print(film.getEpisodeId() + " ");
-        } 
+        }
         // Prints 4 5 6 1 2 3  (Unordered for whatever reason!).
     }
 }
 ```
+
 <br/>
 
 <b>List&lt;Resource&gt;#getByFilter(Predicate&lt;Resource&gt;)</b>
+
 ```java
 class Started {
     public static void main(String[] args) {
         API api = new API.Builder().build();
-        var filtered  = api.films().getByFilter(
-          film -> film.getEpisodeId() <= 3   
+        var filtered = api.films().getByFilter(
+                film -> film.getEpisodeId() <= 3
         );
 //         Forms URL:  https://swapi.dev/api/films/?format=json
 //         It then just sorts utilizing streams filter methods.
@@ -100,9 +108,11 @@ class Started {
     }
 }
 ```
+
 <br/>
 
 <b>Optional&lt;Resource&gt;#getFirstBySearch(String)</b>.
+
 ```java
 class Started {
     public static void main(String[] args) {
@@ -113,11 +123,18 @@ class Started {
 }
 ```
 
-You can find more examples here: <a href="https://github.com/JacobDevelopment/j-swapi/tree/master/src/test/java/io/jking/jswapi">Examples</a>
+You can find more examples
+here: <a href="https://github.com/JacobDevelopment/j-swapi/tree/master/src/test/java/io/jking/jswapi">Examples</a>
 
 <h1>Todo</h1>
 
-| Item #1 | Description                  | Done? |
-|---------|------------------------------|-------|
-| #1      | Finish other resources.      | [ ]   |
-| #2      | Get rid of executor service. | [X]   |
+| Item #1 | Description                           | Done? |
+|---------|---------------------------------------|-------|
+| #1      | Finish other resources.               | [X]   |
+| #2      | Get rid of executor service.          | [X]   |
+| #3      | Duplicate code among request actions. | [X]   |
+| #4      | Fix readme discrepenacies. | [ ]   |
+| #5      | Handle 404 errors / page not found. | [X]   |
+| #6 | Add cache internally so we don't have to request all the time. | [ ]   |
+    
+  

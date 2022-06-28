@@ -8,12 +8,25 @@ public enum Resources {
     STARSHIPS("starships"),
     VEHICLES("vehicles"),
     SPECIES("species"),
-    PLANETS("planets");
+    PLANETS("planets"),
+    UNKNOWN("unknown");
+
+    private static final Resources[] VALUES = values();
 
     private final String resource;
 
     Resources(String resource) {
         this.resource = resource;
+    }
+
+    public static Resources getByName(final String resourceName) {
+        Checks.notEmpty(resourceName, "Resource Name");
+        for (Resources resource : VALUES) {
+            final String name = resource.name();
+            if (name.equalsIgnoreCase(resourceName))
+                return resource;
+        }
+        return Resources.UNKNOWN;
     }
 
     public String getRouteBySearch(String searchParameter) {

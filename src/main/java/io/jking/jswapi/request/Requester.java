@@ -7,8 +7,6 @@ import java.io.IOException;
 
 public class Requester {
 
-    private static final MediaType JSON = MediaType.get("application/json; charset=utf-8");
-
     private final OkHttpClient client;
 
     public Requester(OkHttpClient client) {
@@ -22,6 +20,10 @@ public class Requester {
                 .build();
 
         try (Response response = client.newCall(request).execute()) {
+            int code = response.code();
+            if (code == 404)
+                return null;
+
             ResponseBody responseBody = response.body();
             if (responseBody == null)
                 return null;
@@ -29,9 +31,6 @@ public class Requester {
             return responseBody.string();
         }
     }
-
-
-
 
 
 }

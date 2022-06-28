@@ -1,7 +1,6 @@
 package io.jking.jswapi.core;
 
-import io.jking.jswapi.action.impl.FilmsAction;
-import io.jking.jswapi.action.impl.PeopleAction;
+import io.jking.jswapi.action.impl.*;
 import io.jking.jswapi.utility.Checks;
 import io.jking.jswapi.request.Requester;
 import okhttp3.OkHttpClient;
@@ -30,6 +29,22 @@ public class API {
 
     public FilmsAction films() {
         return new FilmsAction();
+    }
+
+    public SpeciesAction species() {
+        return new SpeciesAction();
+    }
+
+    public PlanetsAction planets() {
+        return new PlanetsAction();
+    }
+
+    public StarshipsAction starships() {
+        return new StarshipsAction();
+    }
+
+    public VehiclesAction vehicles() {
+        return new VehiclesAction();
     }
 
     public static class Builder {
