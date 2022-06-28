@@ -4,6 +4,8 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import io.jking.jswapi.internal.Resources;
+import io.jking.jswapi.internal.Routes;
 import io.jking.jswapi.resources.BaseResource;
 
 import javax.annotation.processing.Generated;
@@ -239,4 +241,23 @@ public class Films extends BaseResource {
         this.url = url;
     }
 
+    @Override
+    public String toString() {
+        return "Films{" +
+                "title='" + title + '\'' +
+                ", episodeId=" + episodeId +
+                ", openingCrawl='" + openingCrawl + '\'' +
+                ", director='" + director + '\'' +
+                ", producer='" + producer + '\'' +
+                ", releaseDate='" + releaseDate + '\'' +
+                ", characters=" + characters +
+                ", planets=" + planets +
+                ", starships=" + starships +
+                ", vehicles=" + vehicles +
+                ", species=" + species +
+                ", created='" + created + '\'' +
+                ", edited='" + edited + '\'' +
+                ", url='" + url + '\'' +
+                '}';
+    }
 }

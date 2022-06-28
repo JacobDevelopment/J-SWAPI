@@ -254,4 +254,24 @@ public class Species extends BaseResource {
         this.url = url;
     }
 
+    @Override
+    public String toString() {
+        return "Species{" +
+                "name='" + name + '\'' +
+                ", classification='" + classification + '\'' +
+                ", designation='" + designation + '\'' +
+                ", averageHeight='" + averageHeight + '\'' +
+                ", skinColors='" + skinColors + '\'' +
+                ", hairColors='" + hairColors + '\'' +
+                ", eyeColors='" + eyeColors + '\'' +
+                ", averageLifespan='" + averageLifespan + '\'' +
+                ", homeworld='" + homeworld + '\'' +
+                ", language='" + language + '\'' +
+                ", people=" + people +
+                ", films=" + films +
+                ", created='" + created + '\'' +
+                ", edited='" + edited + '\'' +
+                ", url='" + url + '\'' +
+                '}';
+    }
 }
