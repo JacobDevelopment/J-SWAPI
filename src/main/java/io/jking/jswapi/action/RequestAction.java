@@ -59,7 +59,7 @@ public abstract class RequestAction<T extends BaseResource> {
 
     private List<T> getAllByPages(GeneralQuery<T> generalQuery) throws IOException {
         final List<T> allOfResources = new ArrayList<>();
-        final int totalPages = (int) (Math.round(generalQuery.getCount() / 10.0) + 1);
+        final int totalPages = (int) (Math.ceil(generalQuery.getCount() / 10.0));
         for (int i = 1; i <= totalPages; i++) {
             final String PAGE_ROUTE = resource.getPageRoute(i);
             final GeneralQuery<T> newGeneralQuery = Binder.bind(PAGE_ROUTE, clazz);
