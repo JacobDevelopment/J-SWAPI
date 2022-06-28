@@ -133,7 +133,7 @@ here: <a href="https://github.com/JacobDevelopment/j-swapi/tree/master/src/test/
 | #1      | Finish other resources.               | [ ]   |
 | #2      | Get rid of executor service.          | [X]   |
 | #3      | Duplicate code among request actions. | [ ]   |
-| #4      | Fix readme discrepenacies. | [ ] |
-| #5      | Handle 404 errors / page not found. | [ ] |
+| #4      | Fix readme discrepenacies. | [ ]   |
+| #5      | Handle 404 errors / page not found. | [X]   |
     
   
