@@ -1,7 +1,8 @@
 package io.jking.jswapi;
 
-import io.jking.jswapi.core.API;
+import io.jking.jswapi.core.SWAPI;
 import io.jking.jswapi.resources.impl.People;
+import okhttp3.OkHttpClient;
 
 import java.io.IOException;
 import java.util.List;
@@ -9,25 +10,29 @@ import java.util.List;
 public class PeopleTest {
 
     public static void main(String[] args) throws IOException {
-        final API api = new API.Builder().build();
+        final SWAPI SWAPI = new SWAPI.Builder().build();
 
-        byId(api);
-        bySearch(api);
-        getAll(api);
+        byId(SWAPI);
+        bySearch(SWAPI);
+        getAll(SWAPI);
+
+        SWAPI swapi = new SWAPI.Builder()
+                .setHttpClient(new OkHttpClient())
+                .build();
     }
 
-    private static void byId(API api) throws IOException {
-        final People people = api.people().getById(3);
+    private static void byId(SWAPI SWAPI) throws IOException {
+        final People people = SWAPI.people().getById(3);
         System.out.println(people.getName());
     }
 
-    private static void bySearch(API api) throws IOException {
-        final List<People> search = api.people().getBySearch("anakin skywalker");
+    private static void bySearch(SWAPI SWAPI) throws IOException {
+        final List<People> search = SWAPI.people().getBySearch("anakin skywalker");
         System.out.println(search.get(0).getName());
     }
 
-    private static void getAll(API api) throws IOException {
-        final List<People> all = api.people().getAll();
+    private static void getAll(SWAPI SWAPI) throws IOException {
+        final List<People> all = SWAPI.people().getAll();
         all.forEach(people -> System.out.println(people.getName()));
     }
 }

@@ -1,140 +1,142 @@
 <h1>J-SWAPI</h1>
-<p>J(ava)-SWAPI, this is an API for <a href="https://swapi.dev/">SWAPI</a> written completely in java. It allows you to retrieve data from the Star Wars API for any applications in need of Star Wars data.</p>
-
-<h1>Dependencies</h1>
-<ul>
-<li><a href="https://github.com/FasterXML/jackson">Jackson</a> - For parsing JSON.</li>
-<li><a href="https://github.com/square/okhttp>">OkHttp</a> - HTTP Client.</li>
-</ul>
-<h1>Please note before using:</h1>
-<p>
-This API does not handle rate limiting, and according to the SWAPI website it allows 10,000 API requests <b>per day</b>.
-<a href="https://swapi.dev/documentation#rate">Source Here.</a>
-
-No authentication is required per the website as well.
+<p>J(ava)-SWAPI is a helper library for <a href="https://swapi.dev/">SWAPI</a>, which is short for Star Wars API. It allows you to retrieve data relating to the following: 
+<b>People, Films, Starships, Vehicles, Species, and Planets.</b>
 </p>
 
+<h1>Table of contents</h1>
+<ul>
+<li><a href="##gettingstarted">Getting Started</a></li>
+<li><a href="##gettingstarted">Get Resource By ID</a></li>
+<li><a href="##gettingstarted">Get All Resources</a></li>
+<li><a href="##gettingstarted">Get Resources by search</a></li>
+<li><a href="##gettingstarted">Get resources by filter</a></li>
+<li><a href="##gettingstarted">Get first resource by search</a></li>
+<li><a href="##gettingstarted">Dependencies</a></li>
+<li><a href="##gettingstarted">Known Issues</a></li>
+<li><a href="##gettingstarted">Todo List</a></li>
+</ul>
 
-<h1>Getting started.</h1>
+<h1>Please note before using:</h1>
+<p>
+This API does not handle rate limiting, and according to the SWAPI website it allows <b>10,000 API requests per day.</b>
+You can find that information documented <a href="https://swapi.dev/documentation#rate">here</a>.
+
+It should also be noted that no authentication is required per the website as well. 
+</p>
+
+<h1 id="#gettingstarted">Getting Started:</h1>
 
 ```java
-class Started {
+class GettingStarted {
     public static void main(String[] args) {
-        API api = new API.Builder().build();
+        SWAPI swapi = new SWAPI.Builder().build();
     }
 }
 ```
 
-From here, we can all specific resources that we want to retrieve. We retrieve the following resources from what SWAPI
-offers:
-<b>People, Films, Starships, Vehicles, Species, Planets.</b>
-
-For example, if we want to retrieve a specific person via <b>ID</b> we can call the following people action:
+<h3>Provide own OkHttpClient:</h3>
+<p>If you want to provide your own OkHttpClient with custom configurations, you can use the following builder methods:</p>
 
 ```java
-class Started {
+class GettingStarted {
     public static void main(String[] args) {
-        API api = new API.Builder().build();
-        var person = api.people().getById(3); // The URL forming here is: https://swapi.dev/api/people/3/?format=json
-        System.out.println(person.getName()); // This would print R2-D2, thanks to Jackson JSON parsing.
+        SWAPI swapi = new SWAPI.Builder()
+                .setHttpClient(new OkHttpClient())
+                .build();
     }
 }
 ```
 
-This API does allow search querying, or retrieving all data for specific resources. All resource(s) have the following
-methods tied to them:
-<br/>
-<b>Resource#getById(Int)</b>
+From here, we can retrieve the following resources that were mentioned above:
+<ul>
+<li>People</li>
+<li>Films</li>
+<li>Starships</li>
+<li>Vehicles</li>
+<li>Species</li>
+<li>Planets</li>
+</ul>
 
+All resources provide the same routes, allowing you to retrieve via the following ways:
+<b>SEARCH, ID, ALL, PAGE.</b>
+
+All resources extend <b><a href="https://github.com/JacobDevelopment/J-SWAPI/blob/master/src/main/java/io/jking/jswapi/action/RequestAction.java">RequestAction&lt;T extends BaseResource&gt;</b></a>.
+
+<p>
+<b>T</b> is defined as our resource. So via our core SWAPI class, we have action methods that return the desired resource we want.
+</p>
+
+<h3>Example:</h3>
 ```java
-class Started {
+class GettingStarted {
     public static void main(String[] args) {
-        API api = new API.Builder().build();
-        var film = api.films().getById(3); // The URL forming here is: https://swapi.dev/api/films/3/?format=json
-        System.out.println(film.getTitle()); // This would print Return of the Jedi.
+        SWAPI swapi = new SWAPI.Builder().build();
+        var person = swapi.person().getById(2);
+    }
+}
+```
+<p>
+The <b>person()</b> method calls the PersonAction class which extends our RequestAction. This applies to all resources, but we will denote the generic methods that all resources provide below.
+</p>
+<h3>Getting Resource By ID:</h3>
+
+`RequestAction#getById(Int)` -> `T`
+```java
+class GettingStarted {
+    public static void main(String[] args) {
+        SWAPI swapi = new SWAPI.Builder().build();
+        var person = swapi.person().getById(2);
     }
 }
 ```
 
-<br/>
+<h3>Getting All Of Resource Type:</h3>
 
-<b>List&lt;Resource&gt;#getBySearch(String)</b>
-
+`RequestAction#getAll()` -> `List<T>`
 ```java
-class Started {
+class GettingStarted {
     public static void main(String[] args) {
-        API api = new API.Builder().build();
-        var person = api.people().getBySearch("anakin skywalker"); // The URL forming here is: https://swapi.dev/api/people/?search=Anakin%20Skywalker&format=json
-        System.out.println(person.getHairColor()); // This would print blond.
+        SWAPI swapi = new SWAPI.Builder().build();
+        List<Films> films = swapi.films().getAll();
     }
 }
 ```
 
-<br/>
+<h3>Getting resources by search query:</h3>
 
-<b>List&lt;Resource&gt;#getAll()</b>
-
+`ReuestAction#getBySearch(String)` -> `List<T>`
 ```java
-class Started {
+class GettingStarted {
     public static void main(String[] args) {
-        API api = new API.Builder().build();
-        var movies = api.films().getAll(); // The URL forming here is: https://swapi.dev/api/films/?format=json
-        for (Films film : movies) {
-            System.out.print(film.getEpisodeId() + " ");
-        }
-        // Prints 4 5 6 1 2 3  (Unordered for whatever reason!).
+        SWAPI swapi = new SWAPI.Builder().build();
+        List<Person> people = swapi.people().getBySearch("anakin skywalker");
     }
 }
 ```
+<p>Spaces are allowed via the search querying method, they are replaced for the URL automatically so using them is alright.</p>
 
-<br/>
+<h3>Getting resources by filter:</h3>
 
-<b>List&lt;Resource&gt;#getByFilter(Predicate&lt;Resource&gt;)</b>
-
+`RequestAction#getByFilter(Predicate<T>` -> `List<T>`
 ```java
-class Started {
+class GettingStarted {
     public static void main(String[] args) {
-        API api = new API.Builder().build();
-        var filtered = api.films().getByFilter(
-                film -> film.getEpisodeId() <= 3
+        SWAPI swapi = new SWAPI.Builder().build();
+        List<Starships> starshipsList = swapi.starships().getByFilter(
+                starship -> Double.parseDouble(starship.getHyperdriveRating()) >= 2.0
         );
-//         Forms URL:  https://swapi.dev/api/films/?format=json
-//         It then just sorts utilizing streams filter methods.
-        filtered.forEach(film -> System.out.println(film.getTitle()));
-//        Outputs:
-//        The Phantom Menace
-//        Attack of the Clones
-//        Revenge of the Sith
     }
 }
 ```
 
-<br/>
-
-<b>Optional&lt;Resource&gt;#getFirstBySearch(String)</b>.
-
+<h3>Getting first result via search:</h3>
+`RequestAction#getFirstBySearch(String)` -> `Optional<T>`
 ```java
-class Started {
+class GettingStarted {
     public static void main(String[] args) {
-        API api = new API.Builder().build();
-        var person = api.people().getFirstBySearch("darth vader").orElse(null); // URL forming here is: The URL forming here is: https://swapi.dev/api/people/?search=darth%20vader&format=json
-        System.out.println(person.getHairColor()); // This would print none because he is bald.
+        SWAPI swapi = new SWAPI.Builder().build();
+        swapi.films().getFirstBySearch("hope").ifPresent(System.out::println);
     }
 }
 ```
 
-You can find more examples
-here: <a href="https://github.com/JacobDevelopment/j-swapi/tree/master/src/test/java/io/jking/jswapi">Examples</a>
-
-<h1>Todo</h1>
-
-| Item #1 | Description                           | Done? |
-|---------|---------------------------------------|-------|
-| #1      | Finish other resources.               | [X]   |
-| #2      | Get rid of executor service.          | [X]   |
-| #3      | Duplicate code among request actions. | [X]   |
-| #4      | Fix readme discrepenacies. | [ ]   |
-| #5      | Handle 404 errors / page not found. | [X]   |
-| #6 | Add cache internally so we don't have to request all the time. | [ ]   |
-    
-  

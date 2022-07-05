@@ -58,10 +58,6 @@ public abstract class RequestAction<T extends BaseResource> {
         return getBySearch(searchParameter).stream().findFirst();
     }
 
-    public Optional<T> getFirst() throws IOException {
-        return getAll().stream().findFirst();
-    }
-
     private List<T> getAllByPages(GeneralQuery<T> generalQuery) throws IOException {
         final List<T> allOfResources = new ArrayList<>();
         final int totalPages = (int) (Math.ceil(generalQuery.getCount() / 10.0));

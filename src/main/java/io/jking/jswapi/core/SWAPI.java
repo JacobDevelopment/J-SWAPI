@@ -5,12 +5,12 @@ import io.jking.jswapi.utility.Checks;
 import io.jking.jswapi.request.Requester;
 import okhttp3.OkHttpClient;
 
-public class API {
+public class SWAPI {
 
     private final OkHttpClient client;
     private final Requester    requester;
 
-    private API(OkHttpClient client) {
+    private SWAPI(OkHttpClient client) {
         this.client = client;
         this.requester = new Requester(client);
     }
@@ -60,8 +60,8 @@ public class API {
             return this;
         }
 
-        public API build() {
-            return new API(client);
+        public SWAPI build() {
+            return new SWAPI(client);
         }
     }
 

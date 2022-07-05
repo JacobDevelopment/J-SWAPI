@@ -1,5 +1,7 @@
 plugins {
     id 'java'
+    id 'application'
+    id 'com.github.johnrengelman.shadow' version '6.0.0'
 }
 
 group 'io.jking'
@@ -14,3 +16,8 @@ dependencies {
     implementation 'com.squareup.okhttp3:okhttp:4.10.0'
 }
 
+shadowJar {
+    mainClassName = 'jswapi.1.0.0-alpha'
+}
+
+compileJava.options.encoding = 'UTF-8'
