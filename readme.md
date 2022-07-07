@@ -11,7 +11,7 @@
 [Getting Resource by Search](#getting-by-search)<br/>
 [Getting Resource(s) By Filter](#getting-by-filter)<br/>
 [Getting First Resource By Search](#getting-first-by-search)<br/>
-[Dependencies](#dependecies)<br/>
+[Dependencies](#dependencies)<br/>
 [Known Issues](#known-issues)
 
 
