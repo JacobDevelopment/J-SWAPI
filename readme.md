@@ -5,15 +5,15 @@
 
 <h1>Table of contents</h1>
 <ul>
-<li><a href="#gettingstarted">Getting Started</a></li>
-<li><a href="#gettingbyid">Get Resource By ID</a></li>
-<li><a href="#gettingall">Get All Resources</a></li>
-<li><a href="#gettingbysearch">Get Resources by search</a></li>
-<li><a href="#gettingbyfilter">Get resources by filter</a></li>
-<li><a href="#gettingfirstbysearch">Get first resource by search</a></li>
-<li><a href="#dependecies">Dependencies</a></li>
-<li><a href="#knownissues">Known Issues</a></li>
-<li><a href="#todolist">Todo List</a></li>
+<li><a href="gettingstarted">Getting Started</a></li>
+<li><a href="gettingbyid">Get Resource By ID</a></li>
+<li><a href="gettingall">Get All Resources</a></li>
+<li><a href="gettingbysearch">Get Resources by search</a></li>
+<li><a href="gettingbyfilter">Get resources by filter</a></li>
+<li><a href="gettingfirstbysearch">Get first resource by search</a></li>
+<li><a href="dependecies">Dependencies</a></li>
+<li><a href="knownissues">Known Issues</a></li>
+<li><a href="todolist">Todo List</a></li>
 </ul>
 
 <h1>Please note before using:</h1>
@@ -48,7 +48,7 @@ RequestAction&lt;T extends BaseResource&gt;</b></a>.
 </p>
 
 
-<h3 id="#gettingbyid">Getting Resource By ID:</h3>
+<h3 id="gettingbyid">Getting Resource By ID:</h3>
 
 `RequestAction#getById(Int)` -> `T`
 
@@ -60,7 +60,7 @@ class GettingStarted {
 }
 ```
 
-<h3 id="gettingall">Getting All Of Resource Type:</h3>
+<h3 id="#gettingall">Getting All Of Resource Type:</h3>
 
 `RequestAction#getAll()` -> `List<T>`
 
