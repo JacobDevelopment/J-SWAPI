@@ -4,17 +4,16 @@
 </p>
 
 <h1>Table of contents</h1>
-<ul>
-<li><a href="#gettingstarted">Getting Started</a></li>
-<li><a href="#gettingbyid">Get Resource By ID</a></li>
-<li><a href="#gettingall">Get All Resources</a></li>
-<li><a href="#gettingbysearch">Get Resources by search</a></li>
-<li><a href="#gettingbyfilter">Get resources by filter</a></li>
-<li><a href="#gettingfirstbysearch">Get first resource by search</a></li>
-<li><a href="#dependecies">Dependencies</a></li>
-<li><a href="#knownissues">Known Issues</a></li>
-<li><a href="#todolist">Todo List</a></li>
-</ul>
+
+[Getting Started](#getting-started)<br/>
+[Getting Resource By Id](#getting-by-id)<br/>
+[Getting All of Resource type](#getting-all)<br/>
+[Getting Resource by Search](#getting-by-search)<br/>
+[Getting Resource(s) By Filter](#getting-by-filter)<br/>
+[Getting First Resource By Search](#getting-first-by-search)<br/>
+[Dependencies](#dependecies)<br/>
+[Known Issues](#known-issues)
+
 
 <h1>Please note before using:</h1>
 <p>
@@ -24,7 +23,8 @@ You can find that information documented <a href="https://swapi.dev/documentatio
 It should also be noted that no authentication is required per the website as well.
 </p>
 
-<h1 id="#gettingstarted">Getting Started:</h1>
+
+## Getting Started
 
 From here, we can retrieve the following resources that were mentioned above:
 <ul>
@@ -48,7 +48,7 @@ RequestAction&lt;T extends BaseResource&gt;</b></a>.
 </p>
 
 
-<h3 id="#gettingbyid">Getting Resource By ID:</h3>
+## Getting By ID
 
 `RequestAction#getById(Int)` -> `T`
 
@@ -60,7 +60,7 @@ class GettingStarted {
 }
 ```
 
-<h3 id="#gettingall">Getting All Of Resource Type:</h3>
+## Getting All
 
 `RequestAction#getAll()` -> `List<T>`
 
@@ -72,7 +72,7 @@ class GettingStarted {
 }
 ```
 
-<h3 id="#gettingbysearch">Getting resources by search query:</h3>
+## Getting By Search
 
 `ReuestAction#getBySearch(String)` -> `List<T>`
 
@@ -86,7 +86,7 @@ class GettingStarted {
 
 <p>Spaces are allowed via the search querying method, they are replaced for the URL automatically so using them is alright.</p>
 
-<h3 id="#gettingbyfilter">Getting resources by filter:</h3>
+## Getting By Filter
 
 `RequestAction#getByFilter(Predicate<T>` -> `List<T>`
 
@@ -100,7 +100,8 @@ class GettingStarted {
 }
 ```
 
-<h3 id="#gettingfirstbysearch">Getting first result via search:</h3>
+## Getting First By Search
+
 `RequestAction#getFirstBySearch(String)` -> `Optional<T>`
 
 ```java
@@ -112,6 +113,7 @@ class GettingStarted {
 ```
 
 <h3>All methods are static and can be called from our core SWAPI class.</h3>
+
 `SWAPI.(resource).getAll()`
 
 `SWAPI.(resource).getById(Int)`
@@ -122,23 +124,19 @@ class GettingStarted {
 
 `SWAPI.(resource).getByFilter(Predicate<T>)`
 
-<h1 id="#dependencies">Dependencies</h1>
+## Dependencies
 <ul>
 <li>
 <a href="https://github.com/FasterXML/jackson">Jackson</a> - Reading & Parsing JSON.
 </li>
 </ul>
 
-<h1 id="#knownissues">
-Known Issues
-</h1>
+## Known Issues
 <p>
 Elements skip certain indexes, read <a href="https://github.com/Juriy/swapi/issues/49">here</a>
 </p>
 
-<h1 id="#todolist">
-Todolist
-</h1>
+## Todolist
 <p>
 Nothing currently.
 </p>
