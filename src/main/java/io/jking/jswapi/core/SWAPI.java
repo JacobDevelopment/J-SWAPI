@@ -1,68 +1,32 @@
 package io.jking.jswapi.core;
 
 import io.jking.jswapi.action.impl.*;
-import io.jking.jswapi.utility.Checks;
-import io.jking.jswapi.request.Requester;
-import okhttp3.OkHttpClient;
 
 public class SWAPI {
 
-    private final OkHttpClient client;
-    private final Requester    requester;
-
-    private SWAPI(OkHttpClient client) {
-        this.client = client;
-        this.requester = new Requester(client);
-    }
-
-    public OkHttpClient getClient() {
-        return client;
-    }
-
-    public Requester getRequester() {
-        return requester;
-    }
-
-    public PeopleAction people() {
+    public static PeopleAction people() {
         return new PeopleAction();
     }
 
-    public FilmsAction films() {
+    public static FilmsAction films() {
         return new FilmsAction();
     }
 
-    public SpeciesAction species() {
+    public static SpeciesAction species() {
         return new SpeciesAction();
     }
 
-    public PlanetsAction planets() {
+    public static PlanetsAction planets() {
         return new PlanetsAction();
     }
 
-    public StarshipsAction starships() {
+    public static StarshipsAction starships() {
         return new StarshipsAction();
     }
 
-    public VehiclesAction vehicles() {
+    public static VehiclesAction vehicles() {
         return new VehiclesAction();
     }
 
-    public static class Builder {
-        private OkHttpClient client;
-
-        public Builder() {
-            this.client = new OkHttpClient();
-        }
-
-        public Builder setHttpClient(OkHttpClient client) {
-            Checks.notNull(client, "HTTP Client");
-            this.client = client;
-            return this;
-        }
-
-        public SWAPI build() {
-            return new SWAPI(client);
-        }
-    }
 
 }

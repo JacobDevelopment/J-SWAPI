@@ -13,11 +13,16 @@ repositories {
 
 dependencies {
     implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.0.1'
-    implementation 'com.squareup.okhttp3:okhttp:4.10.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
 }
 
 shadowJar {
     mainClassName = 'jswapi.1.0.0-alpha'
+}
+
+test {
+    useJUnitPlatform()
 }
 
 compileJava.options.encoding = 'UTF-8'
