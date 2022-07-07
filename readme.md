@@ -5,15 +5,15 @@
 
 <h1>Table of contents</h1>
 <ul>
-<li><a href="gettingstarted">Getting Started</a></li>
-<li><a href="gettingbyid">Get Resource By ID</a></li>
-<li><a href="gettingall">Get All Resources</a></li>
-<li><a href="gettingbysearch">Get Resources by search</a></li>
-<li><a href="gettingbyfilter">Get resources by filter</a></li>
-<li><a href="gettingfirstbysearch">Get first resource by search</a></li>
-<li><a href="dependecies">Dependencies</a></li>
-<li><a href="knownissues">Known Issues</a></li>
-<li><a href="todolist">Todo List</a></li>
+<li><a href="#gettingstarted">Getting Started</a></li>
+<li><a href="#gettingbyid">Get Resource By ID</a></li>
+<li><a href="#gettingall">Get All Resources</a></li>
+<li><a href="#gettingbysearch">Get Resources by search</a></li>
+<li><a href="#gettingbyfilter">Get resources by filter</a></li>
+<li><a href="#gettingfirstbysearch">Get first resource by search</a></li>
+<li><a href="#dependecies">Dependencies</a></li>
+<li><a href="#knownissues">Known Issues</a></li>
+<li><a href="#todolist">Todo List</a></li>
 </ul>
 
 <h1>Please note before using:</h1>
@@ -48,7 +48,7 @@ RequestAction&lt;T extends BaseResource&gt;</b></a>.
 </p>
 
 
-<h3 id="gettingbyid">Getting Resource By ID:</h3>
+<h3 id="#gettingbyid">Getting Resource By ID:</h3>
 
 `RequestAction#getById(Int)` -> `T`
 
@@ -72,7 +72,7 @@ class GettingStarted {
 }
 ```
 
-<h3 id="gettingbysearch">Getting resources by search query:</h3>
+<h3 id="#gettingbysearch">Getting resources by search query:</h3>
 
 `ReuestAction#getBySearch(String)` -> `List<T>`
 
@@ -86,7 +86,7 @@ class GettingStarted {
 
 <p>Spaces are allowed via the search querying method, they are replaced for the URL automatically so using them is alright.</p>
 
-<h3 id="gettingbyfilter">Getting resources by filter:</h3>
+<h3 id="#gettingbyfilter">Getting resources by filter:</h3>
 
 `RequestAction#getByFilter(Predicate<T>` -> `List<T>`
 
@@ -100,7 +100,7 @@ class GettingStarted {
 }
 ```
 
-<h3 id="gettingfirstbysearch">Getting first result via search:</h3>
+<h3 id="#gettingfirstbysearch">Getting first result via search:</h3>
 `RequestAction#getFirstBySearch(String)` -> `Optional<T>`
 
 ```java
@@ -113,16 +113,16 @@ class GettingStarted {
 
 <h3>All methods are static and can be called from our core SWAPI class.</h3>
 `SWAPI.(resource).getAll()`
-<br/>
+
 `SWAPI.(resource).getById(Int)`
-<br/>
+
 `SWAPI.(resource).getBySearch(String)`
-<br/>
+
 `SWAPI.(resource).getFirstBySearch(String)`
-<br/>
+
 `SWAPI.(resource).getByFilter(Predicate<T>)`
 
-<h1 id="dependencies">Dependencies</h1>
+<h1 id="#dependencies">Dependencies</h1>
 <ul>
 <li>
 <a href="https://github.com/FasterXML/jackson">Jackson</a> - Reading & Parsing JSON.
